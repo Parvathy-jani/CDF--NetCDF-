@@ -22,6 +22,8 @@ The data is sourced from the TIMED SABER L2AS dataset:
 
 - **File Name**: `timed_l2as_saber_20211028000052_20211111235913_cdaweb.nc`
 - **Path**: `C:\Users\parva\OneDrive\Desktop\Inspire_Project\Geo_B_Storm\TIMED_Pressure_Data\`
+/TIMED_Pressure_Data/
+    └── timed_l2as_saber_20211028000052_20211111235913_cdaweb.nc  # Main NetCDF file
 
 ## Dimensions and Variables
 
@@ -62,3 +64,26 @@ cleaned_data = ds.where(ds != -999.0, drop=False)
 
 # Display cleaned data
 print(cleaned_data)
+
+### Notes:
+- Adjust the `netcdf_file` path to match your file location.
+- Add further explanations or sections based on additional details about your project or if you plan to include scripts or visualizations in the repository.
+
+This template should provide a good starting point for your project and help others understand the dataset and how to work with it.
+
+
+####SAMPLE CODE
+import xarray as xr
+
+# Path to the NetCDF file
+netcdf_file = "path/to/timed_l2as_saber.nc"
+
+# Open the NetCDF file
+ds = xr.open_dataset(netcdf_file)
+
+# Access specific variables
+latitude = ds['tplatitudeAVG']
+longitude = ds['tplongitudeAVG']
+pressure = ds['pressure']
+ktemp = ds['ktemp']
+density = ds['density']
